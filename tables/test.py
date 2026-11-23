@@ -1,5 +1,5 @@
 import os
-import pickle_file
+import pickle_module
 
 test_file = "test_output.pkl"
 

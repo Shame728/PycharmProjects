@@ -6,13 +6,13 @@ def load_table(file):
         reading = csv.reader(csv_file)
         data = list(reading)
 
-        if not data:
-            return {
-                'headers': [], 'rows': []
-            }
+    if not data:
         return {
-            'headers':data[0], 'rows':data[1:]
+            'headers': [], 'rows': []
         }
+    return {
+        'headers':data[0], 'rows':data[1:]
+    }
 
 
 def save_table(table, file_path):
@@ -20,5 +20,4 @@ def save_table(table, file_path):
         writer = csv.writer(csv_file, delimiter=delimiter, quoting=csv.QUOTE_ALL)
         if table.get('headers'):
             writer.writerow(table['headers'])
-        if table.get('rows'):
-            writer.writerow(table['rows'])
+        writer.writerows(table.get('rows', []))

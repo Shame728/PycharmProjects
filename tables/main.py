@@ -1,13 +1,19 @@
-import csv_file, pickle_file, txt_file
-data= {
-    "headers": ["ID", "Товар", "Описание"],
-    "rows": [
-        [1, "Ноутбук", "Мощный, легкий"],  # Запятая внутри ячейки
-        [2, 'Монитор "Pro"', "27 дюймов"],  # Кавычки внутри ячейки
+import csv_module, pickle_module, txt_module
+
+
+my_table = {
+    'headers': ['ID', 'Имя', 'Возраст'],
+    'rows': [
+        ['1', 'Алексей', '25'],
+        ['2', 'Мария', '30'],
+        ['3', 'Иван', '22'],
     ],
 }
-file = csv_file.load_table('csv_read.csv')
 
-print(file)
 
-csv_file.save_table(data, 'output.csv')
+csv_module.save_table(my_table, 'data.csv')
+pickle_module.save_table(my_table, 'data.pkl')
+txt_module.save_table(my_table, 'data.txt')
+
+loaded_table = csv_module.load_table('data.csv')
+txt_module.print_table(loaded_table)
