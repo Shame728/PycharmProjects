@@ -17,3 +17,4 @@ txt_module.save_table(my_table, 'data.txt')
 
 loaded_table = csv_module.load_table('data.csv')
 txt_module.print_table(loaded_table)
+print()
